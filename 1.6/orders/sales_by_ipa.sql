@@ -13,7 +13,7 @@ SELECT
     od.product_attribute_id,
     SUM(od.`product_quantity`)     as qty,
     SUM(od.`total_price_tax_incl`) as total,
-    p.wholesale_price,
+    p.wholesale_price
 FROM 
     `ps_order_detail` od
     INNER JOIN `ps_orders` o ON od.id_order = o.id_order
