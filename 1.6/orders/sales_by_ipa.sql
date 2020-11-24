@@ -14,7 +14,6 @@ SELECT
     SUM(od.`product_quantity`)     as qty,
     SUM(od.`total_price_tax_incl`) as total,
     p.wholesale_price,
-    od.product_quantity_return
 FROM 
     `ps_order_detail` od
     INNER JOIN `ps_orders` o ON od.id_order = o.id_order
@@ -34,4 +33,4 @@ GROUP BY CASE
     THEN od.product_attribute_id
     ELSE od.product_id
     END
-ORDER BY od.product_quantity_return DESC
+ORDER BY od.product_id, od.product_attribute_id ASC
