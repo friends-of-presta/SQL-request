@@ -12,6 +12,6 @@ _Friends of Presta_ cannot be held responsible for any damage caused by running 
 
 We decided to use the default database prefix (`ps_`) for the SQL requests, but for security reasons we strongly recommend to customize your database prefix instead of using the default one especially in production.
 Changing it will help protect your shop against any attacks (some SQL injection for example) targeting the default table names.
-You can change the default database prefix with this SQL request https://github.com/friends-of-presta/SQL-request/blob/main/1.7/maintenance/rename_table_prefix.sql use this request at your own risk. If you customize the default database prefix yoiu need to change it in `/app/config/parameters.php`
+You can change the default database prefix with this SQL request https://github.com/friends-of-presta/SQL-request/blob/main/1.7/maintenance/rename_table_prefix.sql use this request at your own risk. If you customize the default database prefix you need to change it in `/app/config/parameters.php`
 
 
