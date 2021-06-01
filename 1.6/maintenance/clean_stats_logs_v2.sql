@@ -7,7 +7,7 @@ SET @sql_text1 = concat('DELETE FROM ',@prefix,'_connections',' WHERE date_add <
 PREPARE stmt1 FROM @sql_text1;
 EXECUTE stmt1;
 DEALLOCATE PREPARE stmt1;
-SET @sql_text1 = concat('TRUNCATE TABLE ',@prefix,'_connections_page');
+SET @sql_text1 = concat('DELETE FROM ',@prefix,'_connections_page',' WHERE time_start < now() - interval ',@nbjour,' DAY');
 PREPARE stmt1 FROM @sql_text1;
 EXECUTE stmt1;
 DEALLOCATE PREPARE stmt1;
