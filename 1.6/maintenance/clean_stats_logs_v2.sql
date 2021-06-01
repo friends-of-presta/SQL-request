@@ -1,0 +1,45 @@
+# Prefixe des tables
+SET @prefix = 'ps';
+# Nombre de jours d'historiques à conserver
+SET @nbjour = 100;
+# Constitution et execution des requêtes
+SET @sql_text1 = concat('TRUNCATE TABLE ',@prefix,'_connections');
+PREPARE stmt1 FROM @sql_text1;
+EXECUTE stmt1;
+DEALLOCATE PREPARE stmt1;
+SET @sql_text1 = concat('TRUNCATE TABLE ',@prefix,'_connections_page');
+PREPARE stmt1 FROM @sql_text1;
+EXECUTE stmt1;
+DEALLOCATE PREPARE stmt1;
+SET @sql_text1 = concat('TRUNCATE TABLE ',@prefix,'_connections_source');
+PREPARE stmt1 FROM @sql_text1;
+EXECUTE stmt1;
+DEALLOCATE PREPARE stmt1;
+SET @sql_text1 = concat('TRUNCATE TABLE ',@prefix,'_guest');
+PREPARE stmt1 FROM @sql_text1;
+EXECUTE stmt1;
+DEALLOCATE PREPARE stmt1;
+SET @sql_text1 = concat('TRUNCATE TABLE ',@prefix,'_page_viewed');
+PREPARE stmt1 FROM @sql_text1;
+EXECUTE stmt1;
+DEALLOCATE PREPARE stmt1;
+SET @sql_text1 = concat('TRUNCATE TABLE ',@prefix,'_referrer_cache');
+PREPARE stmt1 FROM @sql_text1;
+EXECUTE stmt1;
+DEALLOCATE PREPARE stmt1;
+SET @sql_text1 = concat('TRUNCATE TABLE ',@prefix,'_pagenotfound');
+PREPARE stmt1 FROM @sql_text1;
+EXECUTE stmt1;
+DEALLOCATE PREPARE stmt1;
+SET @sql_text1 = concat('DELETE FROM ',@prefix,'_mail',' WHERE date_add < now() - interval ',@nbjour,' DAY');
+PREPARE stmt1 FROM @sql_text1;
+EXECUTE stmt1;
+DEALLOCATE PREPARE stmt1;
+SET @sql_text1 = concat('DELETE FROM ',@prefix,'_log',' WHERE date_add < now() - interval ',@nbjour,' DAY');
+PREPARE stmt1 FROM @sql_text1;
+EXECUTE stmt1;
+DEALLOCATE PREPARE stmt1;
+SET @sql_text1 = concat('DELETE FROM ',@prefix,'_statssearch',' WHERE date_add < now() - interval ',@nbjour,' DAY');
+PREPARE stmt1 FROM @sql_text1;
+EXECUTE stmt1;
+DEALLOCATE PREPARE stmt1;
