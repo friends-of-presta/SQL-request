@@ -1,0 +1,10 @@
+TRUNCATE TABLE `ps_connections`;
+TRUNCATE TABLE `ps_connections_page`;
+TRUNCATE TABLE `ps_connections_source`;
+TRUNCATE TABLE `ps_guest`;
+TRUNCATE TABLE `ps_page_viewed`;
+TRUNCATE TABLE `ps_referrer_cache`;
+TRUNCATE TABLE `ps_pagenotfound`;
+DELETE FROM ps_mail WHERE date_add < now() - interval 100 DAY;
+DELETE FROM ps_log WHERE date_add < now() - interval 100 DAY;
+DELETE FROM ps_statssearch WHERE date_add < now() - interval 100 DAY;
