@@ -1,4 +1,4 @@
-# Prefixe des tables
+# Prefixe des tables sans underscore
 SET @prefix = 'ps';
 # Nombre de jours dhistoriques à conserver
 SET @nbjour = 100;
