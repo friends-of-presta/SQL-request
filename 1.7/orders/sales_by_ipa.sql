@@ -5,6 +5,7 @@ SET @date_from = "2020-10-01 00:00:00";
 SET @date_to = "2020-11-30 00:00:00";
 SET @need_invoice = 1;
 SET @no_product_return = 1;
+SET SESSION sql_mode=(SELECT REPLACE(@@sql_mode,'ONLY_FULL_GROUP_BY',''));
 
 SELECT 
     od.product_id,
