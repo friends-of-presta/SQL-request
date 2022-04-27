@@ -50,10 +50,14 @@ customers_statistics AS (
 		MIN(recency), AVG(recency), MAX(recency),
 		MIN(frequency), AVG(frequency), MAX(frequency),
 		MIN(monetary), AVG(monetary), MAX(monetary),
-  		customer_segment
+  		AVG(rfm_score) as mean_rfm_score,
+  		customer_segment,
+  		COUNT(r.id_customer) AS total,
+  		ROUND(COUNT(r.id_customer) / global_stats.total * 100, 2) AS proportion
   	FROM rfm r
+  	CROSS JOIN (SELECT COUNT(id_customer) AS total FROM rfm) global_stats
   	JOIN customer_segmentation cs ON cs.id_customer = r.id_customer
-  	GROUP BY customer_segment
+  	GROUP BY customer_segment, global_stats.total
 )
 
 -- How to use it ?
