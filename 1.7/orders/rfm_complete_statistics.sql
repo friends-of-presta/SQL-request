@@ -1,3 +1,6 @@
+-- Database requirements
+-- MySQL 8+
+-- MariaDB 10.2+
 WITH rfm AS (
 SELECT
   	c.id_customer,
