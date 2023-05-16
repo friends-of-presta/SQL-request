@@ -12,7 +12,7 @@ FROM ps_customer c
 	JOIN ps_order_detail od ON od.id_order = o.id_order
 WHERE c.active = 1
 GROUP BY c.id_customer
-HAVING monetary > 0 -- Ignore non customers
+HAVING monetary > 0 -- Ignore non Customers
 ),
 rfm_scoring AS (
 	SELECT
@@ -64,4 +64,7 @@ customers_statistics AS (
 )
 
 -- How to use it ?
-SELECT * FROM customers_statistics
+SELECT * FROM customers_statistics;
+SELECT * FROM customer_segmentation;
+SELECT * FROM rfm_scoring;
+SELECT * FROM rfm;

@@ -1,4 +1,5 @@
-# Total spent, Profits and Orders per Customer
+-- Total spent, Profits and Orders per Customer
+-- WARNING : most of the time, the original wholesale price is not available
 SELECT firstname,
 	lastname,
 	email,
