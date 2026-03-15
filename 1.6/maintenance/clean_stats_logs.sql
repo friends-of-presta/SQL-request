@@ -1,0 +1,10 @@
+DELETE FROM `ps_connections` WHERE date_add < now() - interval 100 DAY;
+DELETE FROM `ps_connections_page` WHERE time_start < now() - interval 100 DAY;
+DELETE FROM `ps_connections_source` WHERE date_add < now() - interval 100 DAY;
+TRUNCATE TABLE `ps_guest`;
+DELETE FROM `ps_pagenotfound` WHERE date_add < now() - interval 100 DAY;;
+TRUNCATE TABLE `ps_page_viewed`;
+TRUNCATE TABLE `ps_referrer_cache`;
+DELETE FROM ps_mail WHERE date_add < now() - interval 100 DAY;
+DELETE FROM ps_log WHERE date_add < now() - interval 100 DAY;
+DELETE FROM ps_statssearch WHERE date_add < now() - interval 100 DAY;
